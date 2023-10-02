@@ -1,0 +1,7 @@
+#demoLink {
+	color: #0050FF;
+}
+#resultImageContainer {
+	display: flex;
+	justify-content: center;
+}

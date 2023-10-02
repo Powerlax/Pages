@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/universalStyles.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <title>Image Processing Demo</title>
+    <script src="../js/demo.js"></script>
+</head>
+<body>
+    <div id="header">
+		<a href="../index.html" id="homepageLink">Vishruth Rao</a>
+		<div>
+			<a href="../index.html" class="headerLink" id="welcomeLink">WELCOME</a>
+			<a href="index.html" class="headerLink" id="aboutmeLink">ABOUT ME</a>
+			<a href="../projects/index.html" class="headerLink" id="projectsLink">PROJECTS</a>
+	</div>
+    </div>
+    <p>
+        Experience my incredible pet image segmentation demo! Just like magic, watch as my demo effortlessly identifies and separates pets in pictures. Whether it's a playful pup or a curious kitten, our smart system will show you how it can precisely outline and distinguish furry friends from their backgrounds. Explore how this exciting innovation can make pet photography, social media posts, and even pet-related businesses more fun and engaging. To get start, pick a image file (like a .jpg or a .png). Then, click the "Process Image" button to see the magic happen! (Note, It may take a few seconds to process the image, please be patient!)
+    </p>
+    <input type="file" id="imageInput">
+    <button onclick="main()">Process Image</button>
+    <div id="resultImageContainer"></div>
+
+
+    <script>
+        async function main() {
+            const inputElement = document.getElementById('imageInput');
+            const selectedFile = inputElement.files[0];
+
+            if (!selectedFile) {
+                console.error('No file selected.');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = async (event) => {
+                const imageBuffer = event.target.result;
+
+                const img = new Image();
+
+                img.onload = async () => {
+                    try {
+                        const bitmap = await createImageBitmap(img);
+
+                        const tfImage = tf.browser.fromPixels(bitmap);
+                        const resizedImage = tf.image.resizeBilinear(tfImage, [128, 128]);
+                        const normalizedImage = resizedImage.div(255.0);
+                        const expandedImage = normalizedImage.expandDims(0);
+
+                        const imageArray = Array.from(expandedImage.dataSync());
+                        const inputShape = [1, 128, 128, 3];
+                        const reshapedImageArray = tf.tensor(imageArray, inputShape);
+                        const url = 'http://api-dot-website-394218.uc.r.appspot.com/';
+                        const jsonData = { image: reshapedImageArray.arraySync() };
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(jsonData)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+
+                        const responseData = await response.json();
+
+                        const receivedImageArray = responseData.new_image;
+                        const scaleFactor = 5; 
+                        const scaledWidth = 128 * scaleFactor;
+                        const scaledHeight = 128 * scaleFactor;
+
+                    
+                        const canvas = document.createElement('canvas');
+                        canvas.width = scaledWidth;
+                        canvas.height = scaledHeight;
+                        const ctx = canvas.getContext('2d');
+                        const paletteColors = [
+                            [68, 1, 84],   
+                            [32, 143, 140], 
+                            [253, 231, 36], 
+                        ];
+                        receivedImageArray.forEach((row, rowIndex) => {
+                            row.forEach((colors, colIndex) => {
+                                
+                            const [r, g, b] = paletteColors[colors];
+                            ctx.fillStyle = `rgb(${r},${g},${b})`;
+                            const x = colIndex * scaleFactor;
+                            const y = rowIndex * scaleFactor;
+
+                            ctx.fillRect(x, y, scaleFactor, scaleFactor);
+                            });
+                        });
+
+
+                        const resultImageContainer = document.getElementById('resultImageContainer');
+                        resultImageContainer.innerHTML = '';
+                        resultImageContainer.appendChild(canvas);
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                };
+
+                img.src = imageBuffer;
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+    </script>
+</body>
+</html>
