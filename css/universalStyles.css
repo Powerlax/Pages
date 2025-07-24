@@ -10,11 +10,7 @@ body{
 	background: #bada55;
 }
 
-a:link, a:visited{
-	color: black;
-	font-style: normal;
-	text-decoration: none;
-}
+
 
 #header {
 	display: flex;
@@ -33,3 +29,4 @@ a:link, a:visited{
 	font-weight: lighter;
 	font-size: 14px;
 }
+

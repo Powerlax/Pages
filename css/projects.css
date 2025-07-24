@@ -1,57 +1,114 @@
+/* projects.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #fdfdfd;
+  color: #1a1a1a;
+}
+
+strong {
+	margin: 0px;
+}
+
+em {
+	margin: 0px;
+}
+
+h3 {
+	margin: 0px;
+}
+
 .link {
 	margin: 0px;
+}
+
+
+.headerLink:hover {
+  color: #009fff;
 }
 
 #intro {
-	display: flex;
-	text-align: center;
-	align-items: center;
-	flex-direction: column;
+  max-width: 800px;
+  margin: 50px auto 30px auto;
+  text-align: center;
+  padding: 0 20px;
 }
 
-h1 {
-	font-family: Poppins Semi Bold, sans-serif;
-	font-size: 35px;
-	font-weight: bold;
+#intro h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-section, p {
-	font-family: Avenir Light, sans-serif;
-	width: 670px;
-	font-size: 17px;
-	line-height: 1.5;
-}
-
-p {
-	width: 400px;
-	font-size: 17px;
+#intro section {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 .projects {
-	display: flex;
-	background: white;
-	height: 360px;
-	width: 787px;
-	margin: auto;
-	margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  background-color: #e1f0ff;
 }
 
-article {
-	font-family: Poppins Semi Bold, sans-serif;
-	font-size: 24px;
-	font-weight: bolder;
-	color: #0050FF;
+a:link, a:visited{
+  color: black;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.projects img {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.projects article {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.projects p {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 600px;
 }
 
 .link {
-	text-decoration: underline !important;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-img {
-	height: 360px;
-	margin: 0px;
+.link:hover {
+  text-decoration: underline;
 }
 
-#projectsLink {
-	color: #0050FF;
+.containter {
+  flex: 1 1 60%;
+}
+
+@media (max-width: 768px) {
+  .projects {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .containter {
+    width: 100%;
+  }
 }

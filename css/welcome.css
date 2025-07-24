@@ -1,7 +1,12 @@
 img {
 	width: 205px;
 	height: 205px;
-	border-radius: 50%
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+body {
+	background-color: #f7f9fc
 }
 
 .block {
@@ -9,20 +14,36 @@ img {
 	flex-direction: column;
 	align-items: center;
 	width: 400px;
+	height: 500px;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 20px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	margin: 20px;
+	background-color: #e1f0ff;
+}
+
+a:link, a:visited{
+	color: black;
+	font-style: normal;
+	text-decoration: none;
 }
 
 #overall {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
+	padding: 40px;
+	max-width: 1000px;
+	margin: auto;
 }
 
 h1 {
-	width: auto;
-	font-family: Poppins Semi Bold, sans-serif;
+	font-family: 'Poppins Semi Bold', sans-serif;
 	font-size: 27px;
 	font-weight: bold;
-	box-sizing: content-box;
+	margin-top: 15px;
 }
 
 #blueline {
@@ -38,37 +59,48 @@ h1 {
 
 #role {
 	margin-top: 15px;
-	font-family: Avenir Light, sans-serif;
-	font-size: 17;
+	font-family: 'Avenir Light', sans-serif;
+	font-size: 17px;
 	letter-spacing: 2.5px;
+	color: #333;
 }
 
 #hello {
-	font-family: Poppins Semi Bold, sans-serif;
-	font-size: 100px;
+	font-family: 'Poppins Semi Bold', sans-serif;
+	font-size: 80px;
 	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+	color: #333;
 }
 
 .button {
-  background-color: #0050FF;
-  color: white !important;
-  height: 35px;
-  text-align: center;
-  display: inline-block;
-  padding: 10.5px;
-  font-size: 14px;
-  margin: 4px 2px;
-  width: 130px;
-  font-family: sans-serif;
-  border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+	background-color: #0050FF;
+	color: white !important;
+	height: 35px;
+	text-align: center;
+	display: inline-block;
+	padding: 10.5px;
+	font-size: 14px;
+	margin: 4px 8px;
+	width: 130px;
+	font-family: sans-serif;
+	border-radius: 20px;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+}
+
+.button:hover {
+	background-color: #003ecc;
 }
 
 #blurb {
-	font-family: Averir Light, sans-serif;
+	font-family: 'Avenir Light', sans-serif;
 	font-size: 18px;
 	text-align: center;
-	font-weight: light;
-	line-height: 1.5;
+	font-weight: 300;
+	line-height: 1.6;
+	max-width: 500px;
+	margin-top: 20px;
+	color: #444;
 }

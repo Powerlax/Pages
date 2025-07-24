@@ -1,0 +1,113 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f7f9fc;
+	color: #333;
+}
+
+.content {
+	padding: 30px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+h2 {
+	color: #007acc;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+ul {
+	padding-left: 1.2em;
+	margin: 10px 0;
+	list-style-position: inside;
+}
+
+ul li {
+	margin: 0;
+	padding: 0 0 8px 1.2em;
+	text-indent: -1.2em;
+}
+
+.review {
+	margin-bottom: 20px;
+	padding: 10px 15px;
+	border-left: 4px solid #007acc;
+	background-color: #eef5fc;
+}
+
+.workshop-promo {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	background-color: #e1f0ff;
+	border-radius: 10px;
+	padding: 20px;
+	gap: 20px;
+}
+
+.workshop-promo img {
+	max-width: 300px;
+	border-radius: 8px;
+}
+
+.promo-text {
+	flex: 1;
+	min-width: 250px;
+}
+
+strong {
+	margin: 0px;
+}
+
+em {
+	margin: 0px;
+}
+
+h3 {
+	margin: 0px;
+}
+
+a:link, a:visited{
+	font-style: normal;
+	text-decoration: none;
+}
+
+.signup-btn {
+	color: white;
+	display: inline-block;
+	margin-top: 10px;
+	padding: 10px 20px;
+	background-color: #007acc;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+	background-color: #005e99;
+}
+
+.course-box {
+	border: 2px solid #c3dfff;
+	background-color: #f0f7ff;
+	padding: 20px;
+	border-radius: 12px;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s ease;
+}
+
+.course-box:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.course-box h3 {
+	margin-top: 0;
+	color: #005b9f;
+} 
+
+.course-box p {
+	margin: 10px 0 0 0;
+} 

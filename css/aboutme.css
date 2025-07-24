@@ -3,7 +3,7 @@ h1{
 	font-size: 38px;
 	width: 800px;
 	margin: auto;
-	padding-top: 50px;	
+	margin-bottom: 0px;
 }
 
 p {
@@ -11,11 +11,86 @@ p {
 	font-size: 18px;
 	width: 800px;
 	margin: auto;
-	padding-top: 40px;	
+	padding-top: 0px;	
 	line-height: 1.6;
 	font-weight: 600;
 }
 
 #aboutmeLink {
 	color: #0050FF;
+}
+
+strong {
+	margin: 0px;
+}
+
+em {
+	margin: 0px;
+}
+
+h3 {
+	margin: 0px;
+}
+
+a:link, a:visited{
+	color: black;
+	font-style: normal;
+	text-decoration: none;
+}
+
+
+/* projects.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #fdfdfd;
+  color: #1a1a1a;
+}
+
+
+#homepageLink {
+  color: #000000;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.headerLink {
+  color: #ddd;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.headerLink:hover {
+  color: #009fff;
+}
+
+.link {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.containter {
+  flex: 1 1 60%;
+}
+
+#abtme {
+	margin: auto;
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 950px;
+	height: 550px;
+	align-items: center;
+	background-color: #e1f0ff;
+	border-radius: 10px;
+	padding: 30px;
+	gap: 20px;
 }
